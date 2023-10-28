@@ -10,7 +10,7 @@ console.assert(
 /*
 // Test playerChoice Equals randomChoice
 let choices = new Array('rock','paper','scissors');
-let randomChoice = Math.floor(Math.random() * 2);
+let randomChoice = Math.floor(Math.random() * 3);
 console.assert(
     promptPlayerChoice(choices[randomChoice]) === choices[randomChoice]
     , "player choice does not equal random choice"
