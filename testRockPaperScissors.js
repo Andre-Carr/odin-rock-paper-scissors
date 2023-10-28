@@ -50,3 +50,9 @@ console.assert(
     playRound('paper', 'rock' === "You Win! Paper beats Rock")
     , "round result of playerChoice = 'paper' and computerChoice = 'rock' is incorrect" 
 );
+
+// Test round result of player choice = 'rock' and computer choice = 'rock'
+console.assert(
+    playRound('paper', 'rock' === "You Draw! Rock equals Rock")
+    , "round result of playerChoice = 'rock' and computerChoice = 'rock' is incorrect" 
+);
