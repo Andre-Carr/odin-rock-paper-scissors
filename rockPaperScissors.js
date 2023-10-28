@@ -14,7 +14,20 @@ function promptPlayerChoice(testValue) {
 }
 
 function playRound(playerChoice, computerChoice) {
+    let roundResult = "";
+    switch (matchOutcome()) {
+        case -1:
+            roundResult = `You Draw! ${playerChoice} equals '${computerChoice}`;
+            break;
+        case 0:
+            roundResult = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            break;
+        case 1:
+            roundResult = `You Win! ${playerChoice} beats ${computerChoice}`;
+            break;
+    }
 
+    return roundResult;
 }
 
 function matchOutcome(choiceOne, choiceTwo) {
