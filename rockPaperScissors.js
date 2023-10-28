@@ -21,11 +21,11 @@ function playRound(playerChoice, computerChoice) {
         case 0:
             roundResult = `You Lose! ${computerChoice} beats ${playerChoice}`;
             break;
+        case 0.5:
+            roundResult = `You Draw! ${playerChoice} equals ${computerChoice}`;
+            break;
         case 1:
             roundResult = `You Win! ${playerChoice} beats ${computerChoice}`;
-            break;
-        case -1:
-            roundResult = `You Draw! ${playerChoice} equals ${computerChoice}`;
             break;
     }
 
@@ -53,7 +53,7 @@ function matchOutcome(choiceOne, choiceTwo) {
     }
 
     if (choiceOne === choiceTwo) {
-        result = -1;
+        result = 0.5;
     }
 
     return result;
