@@ -1,5 +1,7 @@
 "use strict";
 
+game();
+
 function getComputerChoice() {
     let choices = new Array('rock', 'paper', 'scissors');
     return choices[Math.floor(Math.random() * 2)];
@@ -16,14 +18,14 @@ function promptPlayerChoice(testValue) {
 function playRound(playerChoice, computerChoice) {
     let roundResult = "";
     switch (matchOutcome()) {
-        case -1:
-            roundResult = `You Draw! ${playerChoice} equals '${computerChoice}`;
-            break;
         case 0:
             roundResult = `You Lose! ${computerChoice} beats ${playerChoice}`;
             break;
         case 1:
             roundResult = `You Win! ${playerChoice} beats ${computerChoice}`;
+            break;
+        case -1:
+            roundResult = `You Draw! ${playerChoice} equals ${computerChoice}`;
             break;
     }
 
@@ -55,4 +57,13 @@ function matchOutcome(choiceOne, choiceTwo) {
     }
 
     return result;
+}
+
+function game() {
+    for(let i = 0; i < 5; i++){
+        let computerSelection = getComputerChoice();
+        let playerSelection = promptPlayerChoice();
+
+        console.log(playRound(playerSelection, computerSelection));
+    }
 }
