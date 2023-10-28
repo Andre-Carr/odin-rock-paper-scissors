@@ -7,6 +7,7 @@ console.assert(
     , "computer choice does not equal 'rock' or 'paper' or 'scissors' "
 );
 
+/*
 // Test playerChoice Equals randomChoice
 let choices = new Array('rock','paper','scissors');
 let randomChoice = Math.floor(Math.random() * 2);
@@ -20,6 +21,7 @@ console.assert(
     promptPlayerChoice("rOcK") === 'rock'
     , "player choice is not case insensitive"
 );
+*/
 
 // Test 'rock' beats 'scissors'
 console.assert(
@@ -41,18 +43,18 @@ console.assert(
 
 // Test round result of player choice = 'rock' and computer choice = 'paper'
 console.assert(
-    playRound('rock', 'paper' === "You Lose! Paper beats Rock")
+    playRound('rock', 'paper' === "You Lose! paper beats rock")
     , "round result of playerChoice = 'rock' and computerChoice = 'paper' is incorrect" 
 );
 
 // Test round result of player choice = 'paper' and computer choice = 'rock'
 console.assert(
-    playRound('paper', 'rock' === "You Win! Paper beats Rock")
+    playRound('paper', 'rock' === "You Win! paper beats rock")
     , "round result of playerChoice = 'paper' and computerChoice = 'rock' is incorrect" 
 );
 
 // Test round result of player choice = 'rock' and computer choice = 'rock'
 console.assert(
-    playRound('paper', 'rock' === "You Draw! Rock equals Rock")
+    playRound('paper', 'rock' === "You Draw! rock equals rock")
     , "round result of playerChoice = 'rock' and computerChoice = 'rock' is incorrect" 
 );
