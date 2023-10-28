@@ -4,7 +4,7 @@ game();
 
 function getComputerChoice() {
     let choices = new Array('rock', 'paper', 'scissors');
-    return choices[Math.floor(Math.random() * 2)];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
 function promptPlayerChoice(testValue) {
@@ -17,7 +17,7 @@ function promptPlayerChoice(testValue) {
 
 function playRound(playerChoice, computerChoice) {
     let roundResult = "";
-    switch (matchOutcome()) {
+    switch (matchOutcome(playerChoice, computerChoice)) {
         case 0:
             roundResult = `You Lose! ${computerChoice} beats ${playerChoice}`;
             break;
