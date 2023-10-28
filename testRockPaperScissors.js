@@ -1,8 +1,9 @@
 "use strict";
 
 // Test computerChoice Equals 'rock' OR 'paper' OR 'scissors'
+let computerChoice = getComputerChoice();
 console.assert(
-    getComputerChoice() === 'rock' || getComputerChoice() === 'paper' || getComputerChoice() === 'scissors'
+    computerChoice === 'rock' || computerChoice === 'paper' || computerChoice === 'scissors'
     , "computer choice does not equal 'rock' or 'paper' or 'scissors' "
 );
 
