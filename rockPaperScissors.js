@@ -43,14 +43,14 @@ function playRound(playerChoice, computerChoice) {
     switch (matchOutcome(playerChoice, computerChoice)) {
         case 0:
             computerScore += 1;
-            roundResult = `You Lose! ${computerChoice} beats ${playerChoice}`;
+            roundResult = `You Lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(playerChoice)}`;
             break;
         case 1:
             playerScore += 1;
-            roundResult = `You Win! ${playerChoice} beats ${computerChoice}`;
+            roundResult = `You Win! ${capitalizeFirstLetter(playerChoice)} beats ${capitalizeFirstLetter(computerChoice)}`;
             break;
         case -1:
-            roundResult = `You Draw! ${playerChoice} equals ${computerChoice}`;
+            roundResult = `You Draw! ${capitalizeFirstLetter(playerChoice)} equals ${capitalizeFirstLetter(computerChoice)}`;
             break;
     }
 
@@ -79,4 +79,8 @@ function matchOutcome(choiceOne, choiceTwo) {
     }
 
     return outcome;
+}
+
+function capitalizeFirstLetter(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
 }
