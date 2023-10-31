@@ -3,12 +3,25 @@
 //game();
 
 const buttons = document.querySelectorAll('button');
-const div = document.querySelector('div');
+const result = document.querySelector('.result');
+const scoreboard = document.querySelector('.scoreboard');
+let playerScore = 0;
+let computerScore = 0;
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        let playerSelection = button.value;
-        let computerSelection = getComputerChoice();
-        div.textContent = playRound(playerSelection, computerSelection);
+        if(playerScore < 5 && computerScore < 5) {
+            let playerSelection = button.value;
+            let computerSelection = getComputerChoice();
+            result.textContent = playRound(playerSelection, computerSelection);
+            scoreboard.textContent = `${playerScore} - ${computerScore}`;
+        }
+
+        if(playerScore === 5 || computerScore === 5){
+            scoreboard.textContent = "";
+            result.textContent = (playerScore === 5) ? "VICTORY" : "DEFEAT";
+            playerScore = 0;
+            computerScore = 0;
+        }
     })
 });
 
@@ -29,13 +42,15 @@ function playRound(playerChoice, computerChoice) {
     let roundResult = "";
     switch (matchOutcome(playerChoice, computerChoice)) {
         case 0:
+            computerScore += 1;
             roundResult = `You Lose! ${computerChoice} beats ${playerChoice}`;
             break;
-        case 0.5:
-            roundResult = `You Draw! ${playerChoice} equals ${computerChoice}`;
-            break;
         case 1:
+            playerScore += 1;
             roundResult = `You Win! ${playerChoice} beats ${computerChoice}`;
+            break;
+        case -1:
+            roundResult = `You Draw! ${playerChoice} equals ${computerChoice}`;
             break;
     }
 
@@ -43,30 +58,27 @@ function playRound(playerChoice, computerChoice) {
 }
 
 function matchOutcome(choiceOne, choiceTwo) {
-    let result = 0;
+    let outcome = 0;
+    if (choiceOne === choiceTwo) return -1;
     switch (choiceOne) {
         case 'rock':
             if(choiceTwo === 'scissors') {
-                result = 1;
+                outcome = 1;
             }
             break;
         case 'paper':
             if(choiceTwo === 'rock') {
-                result = 1;
+                outcome = 1;
             }
             break;
         case 'scissors':
             if(choiceTwo === 'paper') {
-                result = 1;
+                outcome = 1;
             }
             break;
     }
 
-    if (choiceOne === choiceTwo) {
-        result = 0.5;
-    }
-
-    return result;
+    return outcome;
 }
 
 function game() {
