@@ -1,7 +1,5 @@
 "use strict";
 
-//game();
-
 const buttons = document.querySelectorAll('button');
 const result = document.querySelector('.result');
 const scoreboard = document.querySelector('.scoreboard');
@@ -17,10 +15,12 @@ buttons.forEach((button) => {
         }
 
         if(playerScore === 5 || computerScore === 5){
-            scoreboard.textContent = "";
-            result.textContent = (playerScore === 5) ? "VICTORY" : "DEFEAT";
-            playerScore = 0;
-            computerScore = 0;
+            let endScreen = (playerScore === 5) ? "VICTORY\nPlay Again?" : "DEFEAT\nPlay Again?";
+            if(window.confirm(endScreen)) {
+                playerScore = 0;
+                computerScore = 0;
+                scoreboard.textContent = `${playerScore} - ${computerScore}`;
+            }
         }
     })
 });
@@ -79,13 +79,4 @@ function matchOutcome(choiceOne, choiceTwo) {
     }
 
     return outcome;
-}
-
-function game() {
-    for(let i = 0; i < 5; i++){
-        let computerSelection = getComputerChoice();
-        let playerSelection = promptPlayerChoice();
-
-        console.log(playRound(playerSelection, computerSelection));
-    }
 }
