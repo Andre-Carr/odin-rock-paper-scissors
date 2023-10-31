@@ -1,6 +1,16 @@
 "use strict";
 
-game();
+//game();
+
+const buttons = document.querySelectorAll('button');
+const div = document.querySelector('div');
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.value;
+        let computerSelection = getComputerChoice();
+        div.textContent = playRound(playerSelection, computerSelection);
+    })
+});
 
 function getComputerChoice() {
     let choices = new Array('rock', 'paper', 'scissors');
@@ -36,17 +46,17 @@ function matchOutcome(choiceOne, choiceTwo) {
     let result = 0;
     switch (choiceOne) {
         case 'rock':
-            if( choiceTwo === 'scissors') {
+            if(choiceTwo === 'scissors') {
                 result = 1;
             }
             break;
         case 'paper':
-            if( choiceTwo === 'rock') {
+            if(choiceTwo === 'rock') {
                 result = 1;
             }
             break;
         case 'scissors':
-            if( choiceTwo === 'paper') {
+            if(choiceTwo === 'paper') {
                 result = 1;
             }
             break;
